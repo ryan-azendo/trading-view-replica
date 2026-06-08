@@ -1,4 +1,5 @@
 import { ThemeToggle } from "@/components/atoms/ThemeToggle";
+import { Button } from "@/components/atoms/Button";
 import styles from "./page.module.css";
 
 const SEMANTIC_COLORS = [
@@ -163,6 +164,29 @@ export default function FoundationPage() {
                 <code className={styles.swatchToken}>{g.token}</code>
               </div>
             ))}
+          </div>
+        </Section>
+
+        <Section title="Button — atom">
+          <div className={styles.btnRow}>
+            <Button variant="primary">Primary</Button>
+            <Button variant="secondary">Open account</Button>
+            <Button variant="ghost">Ghost</Button>
+            <Button variant="danger">Danger</Button>
+            <Button variant="success">Success</Button>
+            <Button variant="primary" disabled>
+              Disabled
+            </Button>
+          </div>
+          <div className={styles.btnRow}>
+            <Button size="sm">Small</Button>
+            <Button size="md">Medium</Button>
+            <Button size="lg">Large</Button>
+          </div>
+          <div className={styles.btnRow} style={{ maxWidth: 320 }}>
+            <Button variant="secondary" fullWidth>
+              Compare brokers
+            </Button>
           </div>
         </Section>
       </div>

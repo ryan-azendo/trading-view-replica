@@ -1,0 +1,124 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  height: var(--nav-height);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+}
+
+.topbarInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.brand {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+}
+
+.brand strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-semibold);
+}
+
+.page {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-20);
+}
+
+.hero {
+  max-width: 640px;
+  margin-bottom: var(--space-12);
+}
+
+.lead {
+  margin-top: var(--space-3);
+  font-size: var(--text-md);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+.section {
+  margin-top: var(--space-12);
+}
+
+.sectionTitle {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+/* --- Swatches --- */
+.swatchGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--space-4);
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+}
+
+.swatchChip {
+  height: 56px;
+  border-radius: var(--radius-md);
+}
+
+.swatchName {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+}
+
+.swatchToken {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
+/* --- Typography --- */
+.typeList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.typeRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-divider);
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+}
+
+/* --- Spacing --- */
+.spaceList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.spaceRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.spaceBar {
+  height: 16px;
+  background: var(--color-brand);
+  border-radius: var(--radius-sm);
+}

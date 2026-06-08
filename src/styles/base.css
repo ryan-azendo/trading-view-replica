@@ -1,0 +1,125 @@
+/* ============================================================
+   BASE ELEMENT STYLES
+   Foundation layer — wires raw HTML elements to design tokens.
+   Components should rarely need to restyle these.
+   ============================================================ */
+
+html {
+  font-size: 100%; /* 16px base; tokens use px so this stays predictable */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--font-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-page);
+  /* Smooth the light/dark transition */
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
+}
+
+/* --- Headings --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight); /* matches Euclid Circular display tracking */
+  color: var(--color-text-primary);
+}
+
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+h5 { font-size: var(--text-lg); }
+h6 { font-size: var(--text-md); }
+
+/* --- Links --- */
+a {
+  color: var(--color-link);
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+a:active {
+  color: var(--color-link-active);
+}
+
+/* --- Code --- */
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* --- Text selection --- */
+::selection {
+  background-color: var(--color-selection-bg);
+}
+
+/* --- Focus visibility (keyboard users) --- */
+:focus-visible {
+  outline: 2px solid var(--color-focus-outline);
+  outline-offset: 2px;
+}
+
+/* --- Scrollbar (WebKit) --- */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar);
+  border-radius: var(--radius-full);
+  border: 3px solid var(--color-scrollbar-track);
+}
+
+/* --- Scrollbar (Firefox) --- */
+* {
+  scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track);
+}
+
+/* ============================================================
+   LAYOUT UTILITY
+   The one structural helper the foundation provides.
+   ============================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding: var(--content-padding);
+}
+
+/* Tabular figures — keep trading numbers (prices, counters) aligned */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Gradient text — paints a --gradient-* token onto the glyphs */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}

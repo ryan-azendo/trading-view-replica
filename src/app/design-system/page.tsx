@@ -5,6 +5,7 @@ import { Badge } from "@/components/atoms/Badge";
 import { Icon } from "@/components/atoms/Icon";
 import { RatingStars } from "@/components/atoms/RatingStars";
 import { Input } from "@/components/atoms/Input";
+import { RatingDisplay } from "@/components/molecules/RatingDisplay";
 import styles from "./page.module.css";
 
 const SEMANTIC_COLORS = [
@@ -263,6 +264,14 @@ export default function FoundationPage() {
             <Input placeholder="Disabled" disabled />
             <Input inputSize="sm" placeholder="Small" />
             <Input inputSize="lg" placeholder="Large" />
+          </div>
+        </Section>
+
+        <Section title="RatingDisplay — molecule">
+          <div className={styles.ratingList}>
+            <RatingDisplay value={4.8} showLabel verified reviewCount={2103} />
+            <RatingDisplay value={4.2} reviewCount={512} />
+            <RatingDisplay value={3.7} layout="stacked" showLabel verified />
           </div>
         </Section>
       </div>

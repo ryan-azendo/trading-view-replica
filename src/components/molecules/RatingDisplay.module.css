@@ -1,0 +1,50 @@
+/* ============================================================
+   RATING DISPLAY (molecule)
+   RatingStars + value/label/verified/count text.
+   ============================================================ */
+
+.root {
+  display: inline-flex;
+}
+
+.inline {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+}
+
+.meta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.value {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+}
+
+.dot {
+  color: var(--color-text-tertiary);
+}
+
+.label {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+}
+
+.verified {
+  color: var(--color-brand);
+}
+
+.count {
+  font-size: var(--text-sm);
+  color: var(--rating-text);
+}

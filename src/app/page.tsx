@@ -17,9 +17,14 @@ export default function HomePage() {
           design system. The foundation (tokens, theming, typography) is in
           place.
         </p>
-        <Link href="/design-system" className={styles.link}>
-          View the design system →
-        </Link>
+        <div className={styles.links}>
+          <Link href="/brokers" className={styles.link}>
+            View the brokers page →
+          </Link>
+          <Link href="/design-system" className={styles.link}>
+            View the design system →
+          </Link>
+        </div>
       </div>
     </main>
   );

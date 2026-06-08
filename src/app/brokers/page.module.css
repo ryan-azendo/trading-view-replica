@@ -1,0 +1,37 @@
+.hero {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-8);
+}
+
+.heroInner {
+  position: relative;
+}
+
+.toggle {
+  position: absolute;
+  top: 0;
+  right: var(--space-6);
+}
+
+.title {
+  font-size: var(--display-1);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-none);
+}
+
+.subtitle {
+  margin-top: var(--space-4);
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+}
+
+.listSection {
+  padding-bottom: var(--section-gap);
+}
+
+/* The filter + list read better in a narrower column than the full hero width */
+.column {
+  max-width: 860px;
+  margin-inline: auto;
+}

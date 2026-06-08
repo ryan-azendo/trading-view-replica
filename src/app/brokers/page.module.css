@@ -1,12 +1,7 @@
-/* Single left-aligned content column (hero + list share the same left edge).
-   The right gutter is reserved for the market-ticker sidebar (coming later). */
-.content {
-  max-width: 880px;
-}
-
 .hero {
-  padding-top: var(--space-10);
-  padding-bottom: var(--space-6);
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-10);
+  text-align: center;
 }
 
 .title {
@@ -17,8 +12,9 @@
 }
 
 .subtitle {
-  margin-top: var(--space-4);
-  font-size: var(--text-lg);
+  margin: var(--space-5) auto 0;
+  max-width: 640px;
+  font-size: var(--text-xl);
   color: var(--color-text-secondary);
 }
 

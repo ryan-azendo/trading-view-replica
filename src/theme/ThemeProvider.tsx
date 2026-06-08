@@ -20,16 +20,16 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-function getInitialTheme(): Theme {
-  if (typeof document === "undefined") return "light";
-  // The inline theme-script has already set this attribute before hydration.
-  return document.documentElement.getAttribute("data-theme") === "dark"
-    ? "dark"
-    : "light";
-}
-
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(getInitialTheme);
+  // Start from a deterministic value so SSR and the first client render agree
+  // (avoids a hydration mismatch). The inline theme-script has already set the
+  // correct theme on <html>; we sync React state to it right after mount.
+  const [theme, setThemeState] = useState<Theme>("light");
+
+  useEffect(() => {
+    const attr = document.documentElement.getAttribute("data-theme");
+    if (attr === "dark" || attr === "light") setThemeState(attr);
+  }, []);
 
   const setTheme = useCallback((next: Theme) => {
     setThemeState(next);

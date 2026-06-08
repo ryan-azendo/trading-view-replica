@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/theme/ThemeProvider";
@@ -29,11 +30,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={dmSans.variable} suppressHydrationWarning>
-      <head>
-        {/* Sets data-theme before paint to prevent a flash of the wrong theme */}
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
       <body>
+        {/* Sets data-theme before hydration to prevent a flash of the wrong theme */}
+        <Script id="theme-init" strategy="beforeInteractive">
+          {themeInitScript}
+        </Script>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

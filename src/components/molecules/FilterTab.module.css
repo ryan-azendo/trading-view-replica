@@ -7,26 +7,24 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  height: 36px;
-  padding: 0 var(--space-4);
+  height: 44px;
+  padding: 0 var(--space-5);
   font-family: var(--font-sans);
-  font-size: var(--text-base);
+  font-size: var(--text-md);
   font-weight: var(--font-medium);
   white-space: nowrap;
-  color: var(--filter-text);
-  background: var(--filter-bg);
-  border: 1px solid var(--filter-border);
-  border-radius: var(--filter-radius);
+  color: var(--color-text-primary);
+  background: var(--color-bg-tertiary);
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
   cursor: pointer;
   transition:
     background-color var(--transition-fast),
-    border-color var(--transition-fast),
     color var(--transition-fast);
 }
 
 .tab:hover {
-  background: var(--color-bg-tertiary);
-  border-color: var(--color-border-hover);
+  background: var(--color-bg-primary-hover);
 }
 
 .tab:focus-visible {
@@ -34,16 +32,15 @@
   outline-offset: 2px;
 }
 
-/* --- Checked / active --- */
+/* --- Checked / active (inverse high-contrast pill) --- */
 .checked {
-  color: var(--filter-text-checked);
-  background: var(--filter-bg-checked);
-  border-color: var(--filter-border-checked);
+  color: var(--color-bg-page);
+  background: var(--color-text-primary);
 }
 
 .checked:hover {
-  background: var(--filter-bg-checked-hover);
-  border-color: var(--filter-border-checked);
+  background: var(--color-text-primary);
+  opacity: 0.9;
 }
 
 .icon {

@@ -42,8 +42,7 @@ export function Header() {
 
           <button type="button" className={styles.search}>
             <Icon icon={Search} size="sm" className={styles.searchIcon} />
-            <span className={styles.searchText}>Search</span>
-            <kbd className={styles.kbd}>⌘K</kbd>
+            <span className={styles.searchText}>Search (⌘K)</span>
           </button>
         </div>
 

@@ -9,7 +9,6 @@
   top: 0;
   z-index: var(--z-sticky);
   background: var(--nav-bg);
-  border-bottom: 1px solid var(--nav-border);
 }
 
 .inner {
@@ -57,19 +56,7 @@
 }
 
 .searchText {
-  flex: 1;
-  text-align: left;
   font-size: var(--text-base);
-}
-
-.kbd {
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  padding: 2px 6px;
-  border-radius: var(--radius-sm);
-  background: var(--color-bg-page);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-tertiary);
 }
 
 /* --- Nav --- */
@@ -151,8 +138,7 @@
     min-width: 0;
   }
 
-  .searchText,
-  .kbd {
+  .searchText {
     display: none;
   }
 }

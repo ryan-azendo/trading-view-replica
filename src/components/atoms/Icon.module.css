@@ -8,4 +8,7 @@
   display: inline-block;
   vertical-align: middle;
   flex-shrink: 0;
+  /* Icons carry an explicit size; never let the global `svg { max-width:100% }`
+     reset shrink them (e.g. when clipped inside a RatingStars overlay). */
+  max-width: none;
 }

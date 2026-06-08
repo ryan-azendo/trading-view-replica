@@ -3,6 +3,7 @@ import { ThemeToggle } from "@/components/atoms/ThemeToggle";
 import { Button } from "@/components/atoms/Button";
 import { Badge } from "@/components/atoms/Badge";
 import { Icon } from "@/components/atoms/Icon";
+import { RatingStars } from "@/components/atoms/RatingStars";
 import styles from "./page.module.css";
 
 const SEMANTIC_COLORS = [
@@ -238,6 +239,15 @@ export default function FoundationPage() {
             <Badge variant="success" leadingIcon={<Icon icon={Check} size={12} />}>
               Verified
             </Badge>
+          </div>
+        </Section>
+
+        <Section title="RatingStars — atom">
+          <div className={styles.ratingList}>
+            <RatingStars value={5} showValue />
+            <RatingStars value={4.5} showValue reviewCount={1234} />
+            <RatingStars value={3.7} size="lg" showValue />
+            <RatingStars value={2.3} size="sm" reviewCount={88} />
           </div>
         </Section>
       </div>

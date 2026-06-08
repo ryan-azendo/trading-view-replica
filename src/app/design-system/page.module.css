@@ -135,3 +135,11 @@
 .btnRow:last-child {
   margin-bottom: 0;
 }
+
+/* --- Rating showcase --- */
+.ratingList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: flex-start;
+}

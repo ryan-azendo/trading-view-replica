@@ -1,0 +1,98 @@
+/* ============================================================
+   INPUT (atom)
+   Border/background live on the wrapper so in-field icons sit
+   inside the same bordered box. Colors from --input-* tokens.
+   ============================================================ */
+
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.wrapper:hover {
+  border-color: var(--input-border-hover);
+}
+
+.wrapper:focus-within {
+  border-color: var(--input-border-focus);
+  outline: 2px solid var(--color-focus-outline);
+  outline-offset: 1px;
+}
+
+/* Error overrides hover/focus border color */
+.error,
+.error:hover,
+.error:focus-within {
+  border-color: var(--input-border-error);
+}
+
+.wrapper:has(.input:disabled) {
+  background: var(--color-bg-tertiary);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* --- Sizes (height + horizontal padding + font size) --- */
+.sm {
+  height: 28px;
+  padding: 0 var(--space-3);
+}
+.sm .input {
+  font-size: var(--text-sm);
+}
+
+.md {
+  height: 36px;
+  padding: 0 var(--space-3);
+}
+.md .input {
+  font-size: var(--text-base);
+}
+
+.lg {
+  height: 44px;
+  padding: 0 var(--space-4);
+}
+.lg .input {
+  font-size: var(--text-md);
+}
+
+/* --- The field itself --- */
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: var(--input-text);
+  font-family: var(--font-sans);
+  line-height: 1;
+}
+
+.input:focus {
+  outline: none; /* focus ring is on the wrapper via :focus-within */
+}
+
+.input::placeholder {
+  color: var(--input-placeholder);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+/* --- In-field icons --- */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--color-icon-secondary);
+}

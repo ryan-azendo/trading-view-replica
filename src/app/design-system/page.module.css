@@ -143,3 +143,11 @@
   gap: var(--space-4);
   align-items: flex-start;
 }
+
+/* --- Input showcase --- */
+.inputCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 360px;
+}

@@ -4,6 +4,7 @@ import { Button } from "@/components/atoms/Button";
 import { Badge } from "@/components/atoms/Badge";
 import { Icon } from "@/components/atoms/Icon";
 import { RatingStars } from "@/components/atoms/RatingStars";
+import { Input } from "@/components/atoms/Input";
 import styles from "./page.module.css";
 
 const SEMANTIC_COLORS = [
@@ -248,6 +249,20 @@ export default function FoundationPage() {
             <RatingStars value={4.5} showValue reviewCount={1234} />
             <RatingStars value={3.7} size="lg" showValue />
             <RatingStars value={2.3} size="sm" reviewCount={88} />
+          </div>
+        </Section>
+
+        <Section title="Input — atom">
+          <div className={styles.inputCol}>
+            <Input placeholder="Default input" />
+            <Input
+              placeholder="Search brokers"
+              leadingIcon={<Icon icon={Search} size="sm" />}
+            />
+            <Input placeholder="Error state" error defaultValue="bad value" />
+            <Input placeholder="Disabled" disabled />
+            <Input inputSize="sm" placeholder="Small" />
+            <Input inputSize="lg" placeholder="Large" />
           </div>
         </Section>
       </div>

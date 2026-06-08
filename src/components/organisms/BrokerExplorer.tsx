@@ -23,6 +23,7 @@ function toListItem(b: Broker): BrokerListItem {
     featured: b.featured,
     rating: b.rating,
     reviewCount: b.reviewCount,
+    accent: b.accent,
     stats: b.stats,
   };
 }

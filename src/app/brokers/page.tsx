@@ -15,20 +15,20 @@ export default function BrokersPage() {
     <main>
       <Header />
 
-      <section className={styles.hero}>
-        <div className="container">
-          <h1 className={styles.title}>Made to trade</h1>
-          <p className={styles.subtitle}>
-            Start trading with verified brokers today.
-          </p>
-        </div>
-      </section>
+      <div className="container">
+        <div className={styles.content}>
+          <section className={styles.hero}>
+            <h1 className={styles.title}>Made to trade</h1>
+            <p className={styles.subtitle}>
+              Start trading with verified brokers today.
+            </p>
+          </section>
 
-      <section className={styles.listSection}>
-        <div className={`container ${styles.column}`}>
-          <BrokerExplorer brokers={BROKERS} filters={FILTER_OPTIONS} />
+          <section className={styles.listSection}>
+            <BrokerExplorer brokers={BROKERS} filters={FILTER_OPTIONS} />
+          </section>
         </div>
-      </section>
+      </div>
 
       <Footer />
     </main>

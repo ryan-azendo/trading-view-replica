@@ -7,6 +7,8 @@ export interface Broker {
   featured?: boolean;
   rating: number;
   reviewCount?: number;
+  /** Accent color for the logo tile (until real logo assets land). */
+  accent: string;
   /** Category ids this broker belongs to (match FILTER_OPTIONS ids). */
   categories: string[];
   stats: { label: string; value: string }[];
@@ -32,6 +34,7 @@ export const BROKERS: Broker[] = [
     featured: true,
     rating: 4.6,
     reviewCount: 1280,
+    accent: "#2962ff",
     categories: ["stocks"],
     stats: [
       { label: "Account min", value: "$0" },
@@ -45,6 +48,7 @@ export const BROKERS: Broker[] = [
     tagline: "Futures and commodities trading",
     rating: 4.1,
     reviewCount: 342,
+    accent: "#f23645",
     categories: ["futures"],
     stats: [
       { label: "Account min", value: "$500" },
@@ -58,6 +62,7 @@ export const BROKERS: Broker[] = [
     tagline: "Crypto and digital assets",
     rating: 3.9,
     reviewCount: 88,
+    accent: "#ff9800",
     categories: ["crypto", "forex"],
     stats: [
       { label: "Account min", value: "$10" },
@@ -72,6 +77,7 @@ export const BROKERS: Broker[] = [
     featured: true,
     rating: 4.3,
     reviewCount: 540,
+    accent: "#089981",
     categories: ["crypto"],
     stats: [
       { label: "Account min", value: "$0" },
@@ -85,6 +91,7 @@ export const BROKERS: Broker[] = [
     tagline: "Full-service brokerage",
     rating: 4.0,
     reviewCount: 210,
+    accent: "#00bcd4",
     categories: ["stocks", "bonds"],
     stats: [
       { label: "Account min", value: "$300" },
@@ -98,6 +105,7 @@ export const BROKERS: Broker[] = [
     tagline: "Stocks and derivatives",
     rating: 4.4,
     reviewCount: 760,
+    accent: "#22ab94",
     categories: ["stocks", "futures"],
     stats: [
       { label: "Account min", value: "$200" },
@@ -111,6 +119,7 @@ export const BROKERS: Broker[] = [
     tagline: "Regional investment banking",
     rating: 3.8,
     reviewCount: 150,
+    accent: "#e91e63",
     categories: ["stocks", "cfd"],
     stats: [
       { label: "Account min", value: "$1,000" },
@@ -124,6 +133,7 @@ export const BROKERS: Broker[] = [
     tagline: "Online trading made simple",
     rating: 4.2,
     reviewCount: 95,
+    accent: "#673ab7",
     categories: ["stocks", "forex"],
     stats: [
       { label: "Account min", value: "$50" },

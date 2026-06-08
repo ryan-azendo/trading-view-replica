@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { Badge } from "@/components/atoms/Badge";
 import { Button } from "@/components/atoms/Button";
 import { RatingDisplay } from "@/components/molecules/RatingDisplay";
@@ -13,8 +13,10 @@ export interface BrokerStatItem {
 export interface BrokerCardProps {
   name: string;
   tagline?: string;
-  /** Logo node (image/svg). Falls back to the broker's initial if omitted. */
+  /** Logo node (image/svg). Falls back to a colored initial tile if omitted. */
   logo?: ReactNode;
+  /** Accent color for the fallback logo tile. */
+  accent?: string;
   featured?: boolean;
   rating: number;
   reviewCount?: number;
@@ -32,6 +34,7 @@ export function BrokerCard({
   name,
   tagline,
   logo,
+  accent = "var(--color-brand)",
   featured = false,
   rating,
   reviewCount,
@@ -74,7 +77,14 @@ export function BrokerCard({
       </div>
 
       <div className={styles.logo} aria-hidden={logo ? undefined : true}>
-        {logo ?? <span className={styles.logoFallback}>{name.charAt(0)}</span>}
+        {logo ?? (
+          <span
+            className={styles.logoTile}
+            style={{ "--tile-accent": accent } as CSSProperties}
+          >
+            {name.charAt(0)}
+          </span>
+        )}
       </div>
     </article>
   );

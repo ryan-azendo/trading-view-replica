@@ -25,9 +25,10 @@
   background: var(--btn-secondary-bg-active);
 }
 
-.icon {
-  font-size: var(--text-md);
-  line-height: 1;
+.compact {
+  width: 36px;
+  padding: 0;
+  justify-content: center;
 }
 
 .label {

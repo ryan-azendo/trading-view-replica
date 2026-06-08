@@ -1,5 +1,6 @@
-import { CandlestickChart, Globe, ChevronDown } from "lucide-react";
+import { Globe, ChevronDown } from "lucide-react";
 import { Icon } from "@/components/atoms/Icon";
+import { BrandLogo } from "@/components/atoms/BrandLogo";
 import { SocialIcon, type SocialName } from "@/components/atoms/SocialIcon";
 import styles from "./Footer.module.css";
 
@@ -98,10 +99,7 @@ export function Footer() {
       <div className={`container ${styles.top}`}>
         {/* Brand column */}
         <div className={styles.brand}>
-          <div className={styles.logo}>
-            <Icon icon={CandlestickChart} className={styles.logoMark} />
-            TradingView
-          </div>
+          <BrandLogo height={20} className={styles.logo} />
           <p className={styles.tagline}>
             Look first <span className={styles.slash}>/</span> Then leap
             <span className={styles.dot}>.</span>

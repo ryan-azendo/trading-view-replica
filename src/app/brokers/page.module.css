@@ -1,6 +1,12 @@
+/* Single left-aligned content column (hero + list share the same left edge).
+   The right gutter is reserved for the market-ticker sidebar (coming later). */
+.content {
+  max-width: 880px;
+}
+
 .hero {
-  padding-top: var(--space-12);
-  padding-bottom: var(--space-8);
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-6);
 }
 
 .title {
@@ -18,10 +24,4 @@
 
 .listSection {
   padding-bottom: var(--section-gap);
-}
-
-/* The filter + list read better in a narrower column than the full hero width */
-.column {
-  max-width: 860px;
-  margin-inline: auto;
 }

@@ -1,7 +1,7 @@
 /* ============================================================
    HEADER (organism)
-   Sticky top nav. Uses --nav-* tokens. Collapses to a mobile
-   menu under 900px.
+   Sticky top nav: logo + search pill | nav | actions.
+   Collapses to a mobile menu below 900px.
    ============================================================ */
 
 .header {
@@ -16,35 +16,63 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-4);
+  gap: var(--space-5);
   height: var(--nav-height);
 }
 
 .left {
   display: flex;
   align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-5);
   min-width: 0;
 }
 
-/* --- Logo --- */
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  font-family: var(--font-display);
-  font-size: var(--text-md);
-  font-weight: var(--font-bold);
-  letter-spacing: var(--tracking-tight);
   color: var(--color-text-primary);
-  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.logoMark {
-  color: var(--color-brand);
+/* --- Search pill --- */
+.search {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 40px;
+  min-width: 240px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+  transition: background-color var(--transition-fast);
 }
 
-/* --- Desktop nav --- */
+.search:hover {
+  background: var(--color-bg-primary-hover);
+}
+
+.searchIcon {
+  color: var(--color-icon-secondary);
+}
+
+.searchText {
+  flex: 1;
+  text-align: left;
+  font-size: var(--text-base);
+}
+
+.kbd {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-page);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-tertiary);
+}
+
+/* --- Nav --- */
 .nav {
   display: flex;
   align-items: center;
@@ -62,26 +90,15 @@
   color: var(--nav-text-hover);
 }
 
+.active {
+  color: var(--color-brand);
+}
+
 /* --- Right cluster --- */
 .right {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-}
-
-.iconBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
-  color: var(--color-icon-secondary);
-  transition: background-color var(--transition-fast);
-}
-
-.iconBtn:hover {
-  background: var(--color-bg-tertiary);
 }
 
 .menuBtn {
@@ -128,5 +145,14 @@
 
   .menuBtn {
     display: inline-flex;
+  }
+
+  .search {
+    min-width: 0;
+  }
+
+  .searchText,
+  .kbd {
+    display: none;
   }
 }

@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { CandlestickChart, Search, Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Search, Menu, X } from "lucide-react";
 import { Button } from "@/components/atoms/Button";
 import { Icon } from "@/components/atoms/Icon";
+import { BrandLogo } from "@/components/atoms/BrandLogo";
 import { ThemeToggle } from "@/components/atoms/ThemeToggle";
 import styles from "./Header.module.css";
 
@@ -23,39 +25,50 @@ const NAV_LINKS: NavLink[] = [
 ];
 
 /**
- * Header — organism. Sticky top navigation: logo + nav links + search,
+ * Header — organism. Sticky top nav: logo + search pill + nav links, with
  * theme toggle and auth CTAs. Collapses the nav into a mobile menu below ~900px.
  */
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.left}>
           <Link href="/" className={styles.logo} aria-label="TradingView home">
-            <Icon icon={CandlestickChart} className={styles.logoMark} />
-            TradingView
+            <BrandLogo height={20} />
           </Link>
 
-          <nav className={styles.nav} aria-label="Primary">
-            {NAV_LINKS.map((link) => (
-              <Link key={link.label} href={link.href} className={styles.navLink}>
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+          <button type="button" className={styles.search}>
+            <Icon icon={Search} size="sm" className={styles.searchIcon} />
+            <span className={styles.searchText}>Search</span>
+            <kbd className={styles.kbd}>⌘K</kbd>
+          </button>
         </div>
 
+        <nav className={styles.nav} aria-label="Primary">
+          {NAV_LINKS.map((link) => {
+            const active = link.href !== "#" && pathname === link.href;
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={active ? `${styles.navLink} ${styles.active}` : styles.navLink}
+                aria-current={active ? "page" : undefined}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
+
         <div className={styles.right}>
-          <button type="button" className={styles.iconBtn} aria-label="Search">
-            <Icon icon={Search} size="sm" />
-          </button>
-          <ThemeToggle />
+          <ThemeToggle compact />
           <Button variant="ghost" size="sm" className={styles.signIn}>
             Sign in
           </Button>
-          <Button variant="primary" size="sm">
+          <Button variant="primary" size="sm" className={styles.getStarted}>
             Get started
           </Button>
 

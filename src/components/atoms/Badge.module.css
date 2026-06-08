@@ -1,0 +1,64 @@
+/* ============================================================
+   BADGE (atom)
+   Small inline label. Variants reference semantic/component tokens
+   so they theme automatically.
+   ============================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-sans);
+  font-weight: var(--font-medium);
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: var(--badge-radius);
+}
+
+/* --- Sizes --- */
+.sm {
+  padding: var(--badge-padding); /* 2px 6px */
+  font-size: var(--text-xs);
+}
+
+.md {
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-sm);
+}
+
+/* --- Variants --- */
+.featured {
+  background: var(--badge-featured-bg);
+  color: var(--badge-featured-text);
+}
+
+.neutral {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+}
+
+.brand {
+  background: var(--color-brand);
+  color: var(--color-text-on-brand);
+}
+
+.success {
+  background: var(--color-success);
+  color: var(--color-text-on-brand);
+}
+
+.danger {
+  background: var(--color-danger);
+  color: var(--color-text-on-brand);
+}
+
+.warning {
+  background: var(--color-warning);
+  color: var(--color-text-on-brand);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}

@@ -1,5 +1,6 @@
 import { ThemeToggle } from "@/components/atoms/ThemeToggle";
 import { Button } from "@/components/atoms/Button";
+import { Badge } from "@/components/atoms/Badge";
 import styles from "./page.module.css";
 
 const SEMANTIC_COLORS = [
@@ -187,6 +188,25 @@ export default function FoundationPage() {
             <Button variant="secondary" fullWidth>
               Compare brokers
             </Button>
+          </div>
+        </Section>
+
+        <Section title="Badge — atom">
+          <div className={styles.btnRow}>
+            <Badge variant="featured">Featured</Badge>
+            <Badge variant="neutral">Regulated</Badge>
+            <Badge variant="brand">PRO</Badge>
+            <Badge variant="success">Bullish</Badge>
+            <Badge variant="danger">Bearish</Badge>
+            <Badge variant="warning">New</Badge>
+          </div>
+          <div className={styles.btnRow}>
+            <Badge size="sm" variant="featured">
+              Small
+            </Badge>
+            <Badge size="md" variant="featured">
+              Medium
+            </Badge>
           </div>
         </Section>
       </div>

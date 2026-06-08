@@ -19,10 +19,11 @@
   height: var(--nav-height);
 }
 
-.left {
+/* search pill + nav links grouped together (centered between logo and actions) */
+.center {
   display: flex;
   align-items: center;
-  gap: var(--space-5);
+  gap: var(--space-6);
   min-width: 0;
 }
 

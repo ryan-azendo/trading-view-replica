@@ -35,32 +35,32 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
-        <div className={styles.left}>
-          <Link href="/" className={styles.logo} aria-label="TradingView home">
-            <BrandLogo height={20} />
-          </Link>
+        <Link href="/" className={styles.logo} aria-label="TradingView home">
+          <BrandLogo height={20} />
+        </Link>
 
+        <div className={styles.center}>
           <button type="button" className={styles.search}>
             <Icon icon={Search} size="sm" className={styles.searchIcon} />
             <span className={styles.searchText}>Search (⌘K)</span>
           </button>
-        </div>
 
-        <nav className={styles.nav} aria-label="Primary">
-          {NAV_LINKS.map((link) => {
-            const active = link.href !== "#" && pathname === link.href;
-            return (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={active ? `${styles.navLink} ${styles.active}` : styles.navLink}
-                aria-current={active ? "page" : undefined}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
+          <nav className={styles.nav} aria-label="Primary">
+            {NAV_LINKS.map((link) => {
+              const active = link.href !== "#" && pathname === link.href;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={active ? `${styles.navLink} ${styles.active}` : styles.navLink}
+                  aria-current={active ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
 
         <div className={styles.right}>
           <ThemeToggle compact />

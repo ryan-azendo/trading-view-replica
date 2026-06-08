@@ -1,0 +1,38 @@
+/* ============================================================
+   BROKER STAT (molecule)
+   A label/value pair. Value emphasized, label as caption.
+   ============================================================ */
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.start {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+.end {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.value {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+.label {
+  font-size: var(--text-sm);
+  line-height: var(--leading-tight);
+  color: var(--color-text-secondary);
+}

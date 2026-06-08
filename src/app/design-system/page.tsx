@@ -7,6 +7,8 @@ import { RatingStars } from "@/components/atoms/RatingStars";
 import { Input } from "@/components/atoms/Input";
 import { RatingDisplay } from "@/components/molecules/RatingDisplay";
 import { FilterTab } from "@/components/molecules/FilterTab";
+import { BrokerStat } from "@/components/molecules/BrokerStat";
+import { BrokerCard } from "@/components/organisms/BrokerCard";
 import styles from "./page.module.css";
 
 const SEMANTIC_COLORS = [
@@ -283,6 +285,43 @@ export default function FoundationPage() {
             <FilterTab>Forex</FilterTab>
             <FilterTab>Crypto</FilterTab>
             <FilterTab>Futures</FilterTab>
+          </div>
+        </Section>
+
+        <Section title="BrokerStat — molecule">
+          <div className={styles.btnRow}>
+            <BrokerStat label="Account min" value="$0" />
+            <BrokerStat label="Regulation" value="SEC, FINRA" />
+            <BrokerStat label="Assets" value="Stocks, ETFs" />
+            <BrokerStat label="Spread from" value="0.0 pips" align="end" />
+          </div>
+        </Section>
+
+        <Section title="BrokerCard — organism">
+          <div className={styles.cardList}>
+            <BrokerCard
+              name="Liberator"
+              featured
+              tagline="Trade stocks with zero commission"
+              rating={4.6}
+              reviewCount={1280}
+              stats={[
+                { label: "Account min", value: "$0" },
+                { label: "Regulation", value: "SEC" },
+                { label: "Assets", value: "Stocks, ETFs" },
+              ]}
+            />
+            <BrokerCard
+              name="YLG Futures"
+              tagline="Futures and commodities trading"
+              rating={4.1}
+              reviewCount={342}
+              stats={[
+                { label: "Account min", value: "$500" },
+                { label: "Regulation", value: "CFTC" },
+                { label: "Assets", value: "Futures" },
+              ]}
+            />
           </div>
         </Section>
       </div>

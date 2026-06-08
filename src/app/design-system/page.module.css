@@ -151,3 +151,11 @@
   gap: var(--space-3);
   max-width: 360px;
 }
+
+/* --- Broker card showcase --- */
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 760px;
+}

@@ -1,0 +1,11 @@
+/* ============================================================
+   ICON (atom)
+   Thin wrapper styling over lucide-react SVGs.
+   Color comes from currentColor by default (inherits text color).
+   ============================================================ */
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}

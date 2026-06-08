@@ -1,6 +1,8 @@
+import { Star, ChevronDown, Check, Search, Plus } from "lucide-react";
 import { ThemeToggle } from "@/components/atoms/ThemeToggle";
 import { Button } from "@/components/atoms/Button";
 import { Badge } from "@/components/atoms/Badge";
+import { Icon } from "@/components/atoms/Icon";
 import styles from "./page.module.css";
 
 const SEMANTIC_COLORS = [
@@ -206,6 +208,35 @@ export default function FoundationPage() {
             </Badge>
             <Badge size="md" variant="featured">
               Medium
+            </Badge>
+          </div>
+        </Section>
+
+        <Section title="Icon — atom">
+          <div className={styles.btnRow}>
+            <Icon icon={Star} size="sm" label="star small" />
+            <Icon icon={ChevronDown} size="md" label="chevron" />
+            <Icon icon={Check} size="lg" label="check" />
+            <Icon
+              icon={Search}
+              size="lg"
+              color="var(--color-brand)"
+              label="search"
+            />
+          </div>
+          <div className={styles.btnRow}>
+            {/* Composed inside other atoms via their icon slots */}
+            <Button variant="primary" leadingIcon={<Icon icon={Plus} size="sm" />}>
+              Add to watchlist
+            </Button>
+            <Button
+              variant="secondary"
+              trailingIcon={<Icon icon={ChevronDown} size="sm" />}
+            >
+              More
+            </Button>
+            <Badge variant="success" leadingIcon={<Icon icon={Check} size={12} />}>
+              Verified
             </Badge>
           </div>
         </Section>

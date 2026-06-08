@@ -10,6 +10,7 @@ import { FilterTab } from "@/components/molecules/FilterTab";
 import { BrokerStat } from "@/components/molecules/BrokerStat";
 import { BrokerCard } from "@/components/organisms/BrokerCard";
 import { FilterBar } from "@/components/organisms/FilterBar";
+import { BrokerList } from "@/components/organisms/BrokerList";
 import styles from "./page.module.css";
 
 const SEMANTIC_COLORS = [
@@ -44,6 +45,46 @@ const TYPE_SCALE = [
 ];
 
 const SPACE_SCALE = [1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20];
+
+const SAMPLE_BROKERS = [
+  {
+    id: "liberator",
+    name: "Liberator",
+    featured: true,
+    tagline: "Trade stocks with zero commission",
+    rating: 4.6,
+    reviewCount: 1280,
+    stats: [
+      { label: "Account min", value: "$0" },
+      { label: "Regulation", value: "SEC" },
+      { label: "Assets", value: "Stocks, ETFs" },
+    ],
+  },
+  {
+    id: "ylg",
+    name: "YLG Futures",
+    tagline: "Futures and commodities trading",
+    rating: 4.1,
+    reviewCount: 342,
+    stats: [
+      { label: "Account min", value: "$500" },
+      { label: "Regulation", value: "CFTC" },
+      { label: "Assets", value: "Futures" },
+    ],
+  },
+  {
+    id: "innovex",
+    name: "InnovexX",
+    tagline: "Crypto and digital assets",
+    rating: 3.9,
+    reviewCount: 88,
+    stats: [
+      { label: "Account min", value: "$10" },
+      { label: "Regulation", value: "—" },
+      { label: "Assets", value: "Crypto" },
+    ],
+  },
+];
 
 const DISPLAY_SIZES = [
   { name: "display-1 (hero)", token: "--display-1" },
@@ -338,6 +379,18 @@ export default function FoundationPage() {
                 { label: "Assets", value: "Futures" },
               ]}
             />
+          </div>
+        </Section>
+
+        <Section title="BrokerList — organism">
+          <div className={styles.cardList}>
+            <BrokerList brokers={SAMPLE_BROKERS} />
+          </div>
+        </Section>
+
+        <Section title="BrokerList — empty state">
+          <div className={styles.cardList}>
+            <BrokerList brokers={[]} />
           </div>
         </Section>
       </div>

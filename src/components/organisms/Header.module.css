@@ -1,0 +1,132 @@
+/* ============================================================
+   HEADER (organism)
+   Sticky top nav. Uses --nav-* tokens. Collapses to a mobile
+   menu under 900px.
+   ============================================================ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  height: var(--nav-height);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+/* --- Logo --- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.logoMark {
+  color: var(--color-brand);
+}
+
+/* --- Desktop nav --- */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.navLink {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--nav-text);
+  transition: color var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--nav-text-hover);
+}
+
+/* --- Right cluster --- */
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.iconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  color: var(--color-icon-secondary);
+  transition: background-color var(--transition-fast);
+}
+
+.iconBtn:hover {
+  background: var(--color-bg-tertiary);
+}
+
+.menuBtn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  color: var(--color-icon-primary);
+}
+
+.menuBtn:hover {
+  background: var(--color-bg-tertiary);
+}
+
+/* --- Mobile dropdown nav --- */
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--nav-border);
+  background: var(--nav-bg);
+}
+
+.mobileLink {
+  padding: var(--space-2) 0;
+  font-size: var(--text-md);
+  font-weight: var(--font-medium);
+  color: var(--nav-text);
+}
+
+.mobileLink:hover {
+  color: var(--nav-text-hover);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .nav,
+  .signIn {
+    display: none;
+  }
+
+  .menuBtn {
+    display: inline-flex;
+  }
+}

@@ -3,16 +3,6 @@
   padding-bottom: var(--space-8);
 }
 
-.heroInner {
-  position: relative;
-}
-
-.toggle {
-  position: absolute;
-  top: 0;
-  right: var(--space-6);
-}
-
 .title {
   font-size: var(--display-1);
   font-weight: var(--font-semibold);

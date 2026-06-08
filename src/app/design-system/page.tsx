@@ -9,6 +9,7 @@ import { RatingDisplay } from "@/components/molecules/RatingDisplay";
 import { FilterTab } from "@/components/molecules/FilterTab";
 import { BrokerStat } from "@/components/molecules/BrokerStat";
 import { BrokerCard } from "@/components/organisms/BrokerCard";
+import { FilterBar } from "@/components/organisms/FilterBar";
 import styles from "./page.module.css";
 
 const SEMANTIC_COLORS = [
@@ -286,6 +287,21 @@ export default function FoundationPage() {
             <FilterTab>Crypto</FilterTab>
             <FilterTab>Futures</FilterTab>
           </div>
+        </Section>
+
+        <Section title="FilterBar — organism (interactive)">
+          <FilterBar
+            defaultValue="all"
+            options={[
+              { id: "all", label: "All brokers" },
+              { id: "stocks", label: "Stocks" },
+              { id: "forex", label: "Forex" },
+              { id: "crypto", label: "Crypto" },
+              { id: "futures", label: "Futures" },
+              { id: "cfd", label: "CFD" },
+              { id: "bonds", label: "Bonds" },
+            ]}
+          />
         </Section>
 
         <Section title="BrokerStat — molecule">

@@ -464,6 +464,7 @@
 .showcaseLaptop {
   width: 100%;
   max-width: 920px;
+  margin-inline: auto;
   border-radius: var(--radius-xl);
   border: 1px solid var(--lib-border-2);
   box-shadow: 0 40px 100px rgb(31 71 255 / 22%);

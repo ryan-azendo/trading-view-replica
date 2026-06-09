@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { DM_Sans } from "next/font/google";
+import { DM_Sans, Noto_Sans_Thai } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/theme/ThemeProvider";
 import { themeInitScript } from "@/theme/theme-script";
@@ -17,6 +17,17 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+/**
+ * Noto Sans Thai — covers Thai glyphs DM Sans lacks (e.g. the Liberator
+ * landing page). Exposed as --font-noto-thai and slotted into the --font-sans
+ * chain after DM Sans, so Latin stays on DM Sans and Thai falls through to it.
+ */
+const notoSansThai = Noto_Sans_Thai({
+  subsets: ["thai"],
+  variable: "--font-noto-thai",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "TradingView Brokers — Replica",
   description:
@@ -29,7 +40,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={dmSans.variable} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${dmSans.variable} ${notoSansThai.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         {/* Sets data-theme before hydration to prevent a flash of the wrong theme */}
         <Script id="theme-init" strategy="beforeInteractive">

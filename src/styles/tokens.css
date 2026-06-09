@@ -601,8 +601,8 @@
   /* DM Sans is our free substitute for TradingView's "Euclid Circular".
      --font-dm-sans is injected by next/font in layout.tsx; the chain below
      falls back to the system geometric/neutral stack. See docs/typography.md */
-  --font-sans: var(--font-dm-sans), -apple-system, BlinkMacSystemFont,
-    "Segoe UI", "Trebuchet MS", sans-serif;
+  --font-sans: var(--font-dm-sans), var(--font-noto-thai), -apple-system,
+    BlinkMacSystemFont, "Segoe UI", "Trebuchet MS", sans-serif;
   --font-display: var(--font-sans); /* same family, used at large sizes */
   --font-mono: "Courier New", monospace;
 

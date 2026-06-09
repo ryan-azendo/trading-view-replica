@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
 import { FilterBar, type FilterOption } from "@/components/organisms/FilterBar";
 import {
   BrokerList,
@@ -57,7 +56,6 @@ export function BrokerExplorer({
   filters,
   defaultFilter = "all",
 }: BrokerExplorerProps) {
-  const router = useRouter();
   const [active, setActive] = useState(defaultFilter);
   const [sort, setSort] = useState("best-rated");
 
@@ -95,7 +93,9 @@ export function BrokerExplorer({
       <BrokerList
         brokers={visible.map((b) => ({
           ...toListItem(b),
-          onOpenAccount: b.href ? () => router.push(b.href!) : undefined,
+          onOpenAccount: b.href
+            ? () => window.open(b.href!, "_blank", "noopener,noreferrer")
+            : undefined,
         }))}
       />
     </div>

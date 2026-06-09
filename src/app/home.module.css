@@ -54,3 +54,15 @@
   font-weight: var(--font-medium);
   color: var(--color-link);
 }
+
+.note {
+  margin-top: var(--space-6);
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+  line-height: var(--leading-relaxed);
+}
+
+.noteLink {
+  font-weight: var(--font-medium);
+  color: var(--color-link);
+}

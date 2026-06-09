@@ -21,10 +21,21 @@ export default function HomePage() {
           <Link href="/brokers" className={styles.link}>
             View the brokers page →
           </Link>
+          <Link href="/brokers/liberator" className={styles.link}>
+            Visit the Liberator landing page →
+          </Link>
           <Link href="/design-system" className={styles.link}>
             View the design system →
           </Link>
         </div>
+
+        <p className={styles.note}>
+          You can also reach the Liberator page from the{" "}
+          <Link href="/brokers" className={styles.noteLink}>
+            brokers page
+          </Link>{" "}
+          — click <strong>Open account</strong> on the Liberator broker card.
+        </p>
       </div>
     </main>
   );

@@ -30,12 +30,12 @@ Open [http://localhost:3000](http://localhost:3000).
 
 | Path                  | What it is                                                            |
 | --------------------- | -------------------------------------------------------------------- |
-| `/`                   | Home                                                                  |
+| `/`                   | Home — entry hub linking to the brokers page, the Liberator landing page, and the design system |
 | `/brokers`            | Brokers directory — filterable/sortable list of broker cards         |
 | `/brokers/liberator`  | Liberator × TradingView marketing landing page (Thai)                |
 | `/design-system`      | Living style guide / component showcase                              |
 
-The **Open account** button on the Liberator card in `/brokers` links through to `/brokers/liberator`.
+The Liberator landing page can be reached two ways: the **"Visit the Liberator landing page"** link on the home page, or the **Open account** button on the Liberator card in `/brokers` (which links through to `/brokers/liberator`, opening in a new tab).
 
 ## Project structure
 

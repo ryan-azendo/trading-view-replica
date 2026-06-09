@@ -19,5 +19,5 @@
 }
 
 .listSection {
-  padding-bottom: var(--section-gap);
+  padding-bottom: var(--space-6);
 }

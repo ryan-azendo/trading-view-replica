@@ -1,0 +1,35 @@
+/* ============================================================
+   PROMO SECTION (organism)
+   Always-dark band (matches TradingView). White text on black,
+   gradient stat counters.
+   ============================================================ */
+
+.promo {
+  background: var(--color-bg-promo); /* black in both themes */
+  color: #fff;
+  padding: var(--space-10) 0 var(--section-gap);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-12);
+}
+
+.heading {
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: inherit;
+}
+
+.counters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-12);
+  width: 100%;
+}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/organisms/Header";
 import { Footer } from "@/components/organisms/Footer";
+import { PromoSection } from "@/components/organisms/PromoSection";
 import { BrokerExplorer } from "@/components/organisms/BrokerExplorer";
 import { BROKERS, FILTER_OPTIONS } from "@/data/brokers";
 import styles from "./page.module.css";
@@ -29,6 +30,8 @@ export default function BrokersPage() {
           <BrokerExplorer brokers={BROKERS} filters={FILTER_OPTIONS} />
         </div>
       </section>
+
+      <PromoSection />
 
       <Footer />
     </main>

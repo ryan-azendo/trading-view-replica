@@ -1,83 +1,103 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { CSSProperties } from "react";
+import Image from "next/image";
+import { MessageSquare, User, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/atoms/Badge";
 import { Button } from "@/components/atoms/Button";
+import { Icon } from "@/components/atoms/Icon";
 import { RatingDisplay } from "@/components/molecules/RatingDisplay";
-import { BrokerStat } from "@/components/molecules/BrokerStat";
 import styles from "./BrokerCard.module.css";
-
-export interface BrokerStatItem {
-  label: string;
-  value: ReactNode;
-}
 
 export interface BrokerCardProps {
   name: string;
-  tagline?: string;
-  /** Logo node (image/svg). Falls back to a colored initial tile if omitted. */
-  logo?: ReactNode;
+  tier?: string;
+  tradableAssets: string;
+  rating: number;
+  reviewCount: number | string;
+  accounts: string;
   /** Accent color for the fallback logo tile. */
   accent?: string;
-  featured?: boolean;
-  rating: number;
-  reviewCount?: number;
-  stats?: BrokerStatItem[];
-  ctaLabel?: string;
+  /** Real logo asset path; falls back to a colored initial tile. */
+  logoSrc?: string;
   onOpenAccount?: () => void;
+  onLearnMore?: () => void;
 }
 
 /**
- * BrokerCard — organism. The core broker row: identity + rating + stats + CTA
- * on the left, logo on the right. Composes Badge, RatingDisplay, BrokerStat
- * and Button. Token-driven, themes automatically.
+ * BrokerCard — organism. Identity + tier + rating + reviews/accounts + CTAs on
+ * the left, a large logo bleeding off the right. Composes Badge, RatingDisplay,
+ * BrokerStat, Button. Token-driven.
  */
 export function BrokerCard({
   name,
-  tagline,
-  logo,
-  accent = "var(--color-brand)",
-  featured = false,
+  tier,
+  tradableAssets,
   rating,
   reviewCount,
-  stats = [],
-  ctaLabel = "Open account",
+  accounts,
+  accent = "var(--color-brand)",
+  logoSrc,
   onOpenAccount,
+  onLearnMore,
 }: BrokerCardProps) {
   return (
     <article className={styles.card}>
       <div className={styles.body}>
         <div className={styles.header}>
           <h3 className={styles.name}>{name}</h3>
-          {featured && <Badge variant="featured">Featured</Badge>}
+          {tier && <Badge variant="tier">{tier}</Badge>}
         </div>
 
-        {tagline && <p className={styles.tagline}>{tagline}</p>}
+        <p className={styles.assets}>Tradable assets: {tradableAssets}</p>
 
-        <RatingDisplay
-          value={rating}
-          reviewCount={reviewCount}
-          size="sm"
-          className={styles.rating}
-        />
-
-        {stats.length > 0 && (
-          <div className={styles.stats}>
-            {stats.map((s) => (
-              <BrokerStat key={s.label} label={s.label} value={s.value} />
-            ))}
+        <div className={styles.ratingRow}>
+          <RatingDisplay
+            value={rating}
+            layout="stacked"
+            showLabel
+            verified
+            size="sm"
+          />
+          <div className={styles.metaStat}>
+            <span className={styles.statValue}>
+              <Icon icon={MessageSquare} size="sm" />
+              {reviewCount}
+            </span>
+            <span className={styles.statLabel}>Reviews</span>
           </div>
-        )}
+          <div className={styles.metaStat}>
+            <span className={styles.statValue}>
+              <Icon icon={User} size="sm" />
+              {accounts}
+            </span>
+            <span className={styles.statLabel}>Accounts</span>
+          </div>
+        </div>
 
-        <Button
-          variant="secondary"
-          className={styles.cta}
-          onClick={onOpenAccount}
-        >
-          {ctaLabel}
-        </Button>
+        <div className={styles.actions}>
+          <Button
+            variant="inverse"
+            onClick={onOpenAccount}
+            trailingIcon={<Icon icon={ExternalLink} size="sm" />}
+          >
+            Open account
+          </Button>
+          <Button variant="secondary" onClick={onLearnMore}>
+            Learn more
+          </Button>
+        </div>
       </div>
 
-      <div className={styles.logo} aria-hidden={logo ? undefined : true}>
-        {logo ?? (
+      <div className={styles.logo} aria-hidden="true">
+        {logoSrc ? (
+          <Image
+            src={logoSrc}
+            alt=""
+            width={298}
+            height={272}
+            unoptimized
+            className={styles.logoImage}
+          />
+        ) : (
           <span
             className={styles.logoTile}
             style={{ "--tile-accent": accent } as CSSProperties}

@@ -512,7 +512,7 @@
   --input-padding:         8px 12px;
 
   /* ---- STAR RATING ---- */
-  --rating-star-filled:  var(--primitive-yellow-700);
+  --rating-star-filled:  var(--color-text-primary); /* white in dark, near-black in light */
   --rating-star-empty:   var(--color-border);
   --rating-text:         var(--color-text-secondary);
 
@@ -629,7 +629,7 @@
 
   /* Fluid display sizes for hero / marketing headings.
      Calibrated to TV desktop: hero 126px, section 64px, counters 48px. */
-  --display-1: clamp(2.5rem, 9vw, 7.875rem); /* ~40 → 126px (hero)     */
+  --display-1: clamp(3rem, 12vw, 9rem);      /* ~48 → 144px (hero)     */
   --display-2: clamp(2rem, 6vw, 4rem);       /* ~32 → 64px  (section)  */
   --display-3: clamp(1.75rem, 4vw, 3rem);    /* ~28 → 48px  (counters) */
 

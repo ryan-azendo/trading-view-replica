@@ -1,86 +1,126 @@
 /* ============================================================
    BROKER CARD (organism)
-   Identity + rating + stats + CTA on the left, logo on the right.
+   Transparent card with a soft gradient border (brighter top-left),
+   generous padding, and a large logo bleeding off the right.
    ============================================================ */
 
 .card {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: var(--space-5);
-  padding: var(--space-5) var(--space-6);
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-10);
+  min-height: 200px;
   border-radius: var(--radius-xl);
-  /* keep stacked-logo layers from being clipped */
-  overflow: visible;
-  transition:
-    border-color var(--transition-base),
-    box-shadow var(--transition-base);
+  background: var(--color-bg-page);
+  overflow: hidden;
 }
 
-.card:hover {
-  border-color: var(--card-border-hover);
-  box-shadow: var(--card-shadow-hover);
+/* 1px gradient border, brighter at the top-left (theme-aware) */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--color-text-primary) 22%, transparent),
+    color-mix(in oklab, var(--color-text-primary) 5%, transparent) 38%,
+    color-mix(in oklab, var(--color-text-primary) 2%, transparent)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .body {
-  flex: 1;
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
   min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-2);
+  gap: var(--space-4);
 }
 
 .header {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
 }
 
 .name {
-  font-size: var(--text-xl);
-  font-weight: var(--font-semibold);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
   letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
 }
 
-.tagline {
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
+.assets {
+  font-size: var(--text-md);
+  color: var(--color-text-primary);
 }
 
-.rating {
-  margin: var(--space-1) 0;
-}
-
-.stats {
+.ratingRow {
   display: flex;
+  align-items: flex-end;
   flex-wrap: wrap;
-  gap: var(--space-6);
+  gap: var(--space-8);
   margin: var(--space-1) 0 var(--space-2);
 }
 
-.cta {
-  margin-top: var(--space-1);
+.metaStat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.statValue {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+}
+
+.statLabel {
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
 }
 
 /* --- Logo --- */
 .logo {
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  /* room for the offset stacked layers */
-  padding-right: var(--space-3);
-  padding-bottom: var(--space-2);
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  /* let the logo bleed toward the card's right edge */
+  margin-right: calc(-1 * var(--space-6));
+}
+
+.logoImage {
+  display: block;
+  width: 200px;
+  height: auto;
 }
 
 .logoTile {
   position: relative;
   z-index: 1;
-  width: 112px;
-  height: 112px;
   display: grid;
   place-items: center;
+  width: 132px;
+  height: 132px;
   border-radius: var(--radius-lg);
   font-family: var(--font-display);
   font-size: var(--text-4xl);
@@ -94,7 +134,6 @@
   box-shadow: 0 12px 30px -10px color-mix(in oklab, var(--tile-accent) 65%, transparent);
 }
 
-/* stacked-card layers behind the tile */
 .logoTile::before,
 .logoTile::after {
   content: "";
@@ -106,12 +145,12 @@
 }
 
 .logoTile::before {
-  transform: translate(7px, 7px);
+  transform: translate(8px, 8px);
   opacity: 0.55;
 }
 
 .logoTile::after {
-  transform: translate(14px, 14px);
+  transform: translate(16px, 16px);
   opacity: 0.28;
 }
 
@@ -120,9 +159,11 @@
   .card {
     flex-direction: column-reverse;
     align-items: stretch;
+    padding: var(--space-6);
   }
 
   .logo {
-    align-self: flex-start;
+    align-self: flex-end;
+    margin-right: 0;
   }
 }

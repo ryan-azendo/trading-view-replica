@@ -51,39 +51,33 @@ const SAMPLE_BROKERS = [
   {
     id: "liberator",
     name: "Liberator",
-    featured: true,
-    tagline: "Trade stocks with zero commission",
-    rating: 4.6,
-    reviewCount: 1280,
-    stats: [
-      { label: "Account min", value: "$0" },
-      { label: "Regulation", value: "SEC" },
-      { label: "Assets", value: "Stocks, ETFs" },
-    ],
+    tier: "SILVER",
+    tradableAssets: "Stocks, Futures",
+    rating: 4.1,
+    reviewCount: 473,
+    accounts: "5.5K",
+    accent: "#2962ff",
+    logoSrc: "/brokers/liberator.svg",
   },
   {
     id: "ylg",
     name: "YLG Futures",
-    tagline: "Futures and commodities trading",
+    tier: "BRONZE",
+    tradableAssets: "Futures",
     rating: 4.1,
     reviewCount: 342,
-    stats: [
-      { label: "Account min", value: "$500" },
-      { label: "Regulation", value: "CFTC" },
-      { label: "Assets", value: "Futures" },
-    ],
+    accounts: "3.1K",
+    accent: "#f23645",
   },
   {
     id: "innovex",
     name: "InnovexX",
-    tagline: "Crypto and digital assets",
+    tier: "BRONZE",
+    tradableAssets: "Crypto, Forex",
     rating: 3.9,
     reviewCount: 88,
-    stats: [
-      { label: "Account min", value: "$10" },
-      { label: "Regulation", value: "—" },
-      { label: "Assets", value: "Crypto" },
-    ],
+    accounts: "640",
+    accent: "#ff9800",
   },
 ];
 
@@ -371,26 +365,22 @@ export default function FoundationPage() {
           <div className={styles.cardList}>
             <BrokerCard
               name="Liberator"
-              featured
-              tagline="Trade stocks with zero commission"
-              rating={4.6}
-              reviewCount={1280}
-              stats={[
-                { label: "Account min", value: "$0" },
-                { label: "Regulation", value: "SEC" },
-                { label: "Assets", value: "Stocks, ETFs" },
-              ]}
+              tier="SILVER"
+              tradableAssets="Stocks, Futures"
+              rating={4.1}
+              reviewCount={473}
+              accounts="5.5K"
+              accent="#2962ff"
+              logoSrc="/brokers/liberator.svg"
             />
             <BrokerCard
               name="YLG Futures"
-              tagline="Futures and commodities trading"
+              tier="BRONZE"
+              tradableAssets="Futures"
               rating={4.1}
               reviewCount={342}
-              stats={[
-                { label: "Account min", value: "$500" },
-                { label: "Regulation", value: "CFTC" },
-                { label: "Assets", value: "Futures" },
-              ]}
+              accounts="3.1K"
+              accent="#f23645"
             />
           </div>
         </Section>

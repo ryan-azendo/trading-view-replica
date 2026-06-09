@@ -1,6 +1,6 @@
 .hero {
-  padding-top: var(--space-16);
-  padding-bottom: var(--space-10);
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-16);
   text-align: center;
 }
 
@@ -12,10 +12,10 @@
 }
 
 .subtitle {
-  margin: var(--space-5) auto 0;
-  max-width: 640px;
-  font-size: var(--text-xl);
-  color: var(--color-text-secondary);
+  margin: var(--space-6) auto 0;
+  max-width: 680px;
+  font-size: var(--text-2xl);
+  color: var(--color-text-primary);
 }
 
 .listSection {

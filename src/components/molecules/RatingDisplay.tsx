@@ -1,18 +1,19 @@
 import type { HTMLAttributes } from "react";
-import { BadgeCheck } from "lucide-react";
+import { Check } from "lucide-react";
 import { RatingStars, type RatingSize } from "@/components/atoms/RatingStars";
 import { Icon } from "@/components/atoms/Icon";
 import styles from "./RatingDisplay.module.css";
 
 export type RatingLayout = "inline" | "stacked";
 
-/** Word rating from a numeric value. 3.7 → "Average" (matches the reference). */
+/** Word rating from a numeric value (TradingView scale).
+ *  4.1 → "Above Average", 3.7 → "Average". */
 function ratingLabel(value: number): string {
   if (value >= 4.5) return "Excellent";
-  if (value >= 4) return "Great";
+  if (value >= 4) return "Above Average";
   if (value >= 3) return "Average";
-  if (value >= 2) return "Poor";
-  return "Bad";
+  if (value >= 2) return "Below Average";
+  return "Poor";
 }
 
 export interface RatingDisplayProps extends HTMLAttributes<HTMLDivElement> {
@@ -60,12 +61,9 @@ export function RatingDisplay({
         </>
       )}
       {verified && (
-        <Icon
-          icon={BadgeCheck}
-          size="sm"
-          className={styles.verified}
-          label="Verified"
-        />
+        <span className={styles.verified} role="img" aria-label="Verified">
+          <Icon icon={Check} size={12} strokeWidth={3} />
+        </span>
       )}
       {typeof reviewCount === "number" && (
         <span className={styles.count}>({reviewCount.toLocaleString()})</span>

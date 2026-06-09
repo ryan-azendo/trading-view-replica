@@ -6,7 +6,7 @@
 .explorer {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-6);
 }
 
 /* sort dropdown + divider + filter pills, centered as one row */

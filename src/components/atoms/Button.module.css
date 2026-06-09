@@ -59,6 +59,18 @@
   background: var(--btn-primary-bg-active);
 }
 
+/* --- Variant: inverse (high-contrast: white on dark / black on light) --- */
+.inverse {
+  background: var(--color-text-primary);
+  color: var(--color-bg-page);
+}
+.inverse:hover {
+  opacity: 0.9;
+}
+.inverse:active {
+  opacity: 0.8;
+}
+
 /* --- Variant: secondary (bordered) --- */
 .secondary {
   background: var(--btn-secondary-bg);

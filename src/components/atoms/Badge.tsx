@@ -3,6 +3,7 @@ import styles from "./Badge.module.css";
 
 export type BadgeVariant =
   | "featured"
+  | "tier"
   | "neutral"
   | "brand"
   | "success"

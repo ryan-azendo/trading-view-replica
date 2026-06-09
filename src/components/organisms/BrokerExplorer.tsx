@@ -16,6 +16,16 @@ const SORT_OPTIONS: DropdownOption[] = [
   { id: "most-users", label: "Most users" },
 ];
 
+/** Coerce a count (number or formatted string like "1.9K"/"30.8K") to a number. */
+function toCount(v: number | string): number {
+  if (typeof v === "number") return v;
+  const match = /^([\d.]+)\s*([kmb]?)/i.exec(v.trim());
+  if (!match) return 0;
+  const n = parseFloat(match[1]);
+  const mult = { k: 1e3, m: 1e6, b: 1e9 }[match[2].toLowerCase()] ?? 1;
+  return n * mult;
+}
+
 export interface BrokerExplorerProps {
   brokers: Broker[];
   filters: FilterOption[];
@@ -26,12 +36,13 @@ function toListItem(b: Broker): BrokerListItem {
   return {
     id: b.id,
     name: b.name,
-    tagline: b.tagline,
-    featured: b.featured,
+    tier: b.tier,
+    tradableAssets: b.tradableAssets,
     rating: b.rating,
     reviewCount: b.reviewCount,
+    accounts: b.accounts,
     accent: b.accent,
-    stats: b.stats,
+    logoSrc: b.logoSrc,
   };
 }
 
@@ -57,7 +68,7 @@ export function BrokerExplorer({
     return [...filtered].sort((a, b) =>
       sort === "best-rated"
         ? b.rating - a.rating
-        : (b.reviewCount ?? 0) - (a.reviewCount ?? 0),
+        : toCount(b.reviewCount) - toCount(a.reviewCount),
     );
   }, [brokers, active, sort]);
 

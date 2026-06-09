@@ -37,11 +37,18 @@
 
 .label {
   font-size: var(--text-base);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
 }
 
+/* white badge with a black check (inverse follows the theme) */
 .verified {
-  color: var(--color-brand);
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  background: var(--color-text-primary);
+  color: var(--color-bg-page);
 }
 
 .count {

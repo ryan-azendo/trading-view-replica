@@ -3,6 +3,7 @@ import styles from "./Button.module.css";
 
 export type ButtonVariant =
   | "primary"
+  | "inverse"
   | "secondary"
   | "ghost"
   | "danger"

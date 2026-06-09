@@ -3,15 +3,21 @@ import type { FilterOption } from "@/components/organisms/FilterBar";
 export interface Broker {
   id: string;
   name: string;
-  tagline?: string;
-  featured?: boolean;
+  /** Subscription/partner tier, e.g. "SILVER", "GOLD". */
+  tier?: string;
+  /** Tradable assets summary, e.g. "Stocks, Futures". */
+  tradableAssets: string;
   rating: number;
-  reviewCount?: number;
-  /** Accent color for the logo tile (until real logo assets land). */
+  /** Review count — a number or a pre-formatted string like "1.9K". */
+  reviewCount: number | string;
+  /** Pre-formatted account count, e.g. "5.5K". */
+  accounts: string;
+  /** Accent color for the fallback logo tile. */
   accent: string;
+  /** Path to a real logo asset (overrides the colored tile). */
+  logoSrc?: string;
   /** Category ids this broker belongs to (match FILTER_OPTIONS ids). */
   categories: string[];
-  stats: { label: string; value: string }[];
 }
 
 /** Filter categories for the hero filter bar. "all" is the catch-all. */
@@ -25,120 +31,102 @@ export const FILTER_OPTIONS: FilterOption[] = [
   { id: "bonds", label: "Bonds" },
 ];
 
-/** Sample brokers. Placeholder data until real broker content/logos land. */
+/** Sample brokers. Placeholder data; only Liberator has a real logo asset. */
 export const BROKERS: Broker[] = [
   {
     id: "liberator",
     name: "Liberator",
-    tagline: "Trade stocks with zero commission",
-    featured: true,
-    rating: 4.6,
-    reviewCount: 1280,
-    accent: "#2962ff",
-    categories: ["stocks"],
-    stats: [
-      { label: "Account min", value: "$0" },
-      { label: "Regulation", value: "SEC" },
-      { label: "Assets", value: "Stocks, ETFs" },
-    ],
-  },
-  {
-    id: "ylg-futures",
-    name: "YLG Futures",
-    tagline: "Futures and commodities trading",
+    tier: "SILVER",
+    tradableAssets: "Stocks, Futures",
     rating: 4.1,
-    reviewCount: 342,
-    accent: "#f23645",
-    categories: ["futures"],
-    stats: [
-      { label: "Account min", value: "$500" },
-      { label: "Regulation", value: "CFTC" },
-      { label: "Assets", value: "Futures" },
-    ],
-  },
-  {
-    id: "innovex",
-    name: "InnovexX",
-    tagline: "Crypto and digital assets",
-    rating: 3.9,
-    reviewCount: 88,
-    accent: "#ff9800",
-    categories: ["crypto", "forex"],
-    stats: [
-      { label: "Account min", value: "$10" },
-      { label: "Regulation", value: "—" },
-      { label: "Assets", value: "Crypto, FX" },
-    ],
-  },
-  {
-    id: "bitazza",
-    name: "Bitazza",
-    tagline: "Digital asset exchange",
-    featured: true,
-    rating: 4.3,
-    reviewCount: 540,
-    accent: "#089981",
-    categories: ["crypto"],
-    stats: [
-      { label: "Account min", value: "$0" },
-      { label: "Regulation", value: "SEC TH" },
-      { label: "Assets", value: "Crypto" },
-    ],
-  },
-  {
-    id: "daolsec",
-    name: "DAOL SEC",
-    tagline: "Full-service brokerage",
-    rating: 4.0,
-    reviewCount: 210,
-    accent: "#00bcd4",
-    categories: ["stocks", "bonds"],
-    stats: [
-      { label: "Account min", value: "$300" },
-      { label: "Regulation", value: "SEC TH" },
-      { label: "Assets", value: "Stocks, Bonds" },
-    ],
+    reviewCount: 473,
+    accounts: "5.5K",
+    accent: "#2962ff",
+    logoSrc: "/brokers/liberator.svg",
+    categories: ["stocks", "futures"],
   },
   {
     id: "ksecurities",
     name: "KSecurities",
-    tagline: "Stocks and derivatives",
+    tier: "SILVER",
+    tradableAssets: "Stocks, Futures",
     rating: 4.4,
     reviewCount: 760,
+    accounts: "12K",
     accent: "#22ab94",
+    logoSrc: "/brokers/ksecurities.svg",
     categories: ["stocks", "futures"],
-    stats: [
-      { label: "Account min", value: "$200" },
-      { label: "Regulation", value: "SEC TH" },
-      { label: "Assets", value: "Stocks, Futures" },
-    ],
   },
   {
-    id: "cgsi",
-    name: "CGS International",
-    tagline: "Regional investment banking",
-    rating: 3.8,
-    reviewCount: 150,
-    accent: "#e91e63",
-    categories: ["stocks", "cfd"],
-    stats: [
-      { label: "Account min", value: "$1,000" },
-      { label: "Regulation", value: "MAS" },
-      { label: "Assets", value: "Stocks, CFD" },
-    ],
+    id: "bitazza",
+    name: "Bitazza",
+    tier: "SILVER",
+    tradableAssets: "Crypto",
+    rating: 4.3,
+    reviewCount: 540,
+    accounts: "8.2K",
+    accent: "#089981",
+    logoSrc: "/brokers/bitazza.svg",
+    categories: ["crypto"],
+  },
+  {
+    id: "ylg-futures",
+    name: "YLG Futures",
+    tier: "SILVER",
+    tradableAssets: "Futures",
+    rating: 3.9,
+    reviewCount: 101,
+    accounts: "326",
+    accent: "#f23645",
+    logoSrc: "/brokers/ylg-futures.svg",
+    categories: ["futures"],
   },
   {
     id: "beyond",
     name: "Beyond Securities",
-    tagline: "Online trading made simple",
-    rating: 4.2,
-    reviewCount: 95,
+    tier: "SILVER",
+    tradableAssets: "Futures",
+    rating: 3.7,
+    reviewCount: 13,
+    accounts: "458",
     accent: "#673ab7",
-    categories: ["stocks", "forex"],
-    stats: [
-      { label: "Account min", value: "$50" },
-      { label: "Regulation", value: "SEC TH" },
-      { label: "Assets", value: "Stocks, FX" },
-    ],
+    logoSrc: "/brokers/beyond.svg",
+    categories: ["futures"],
+  },
+  {
+    id: "daolsec",
+    name: "DAOL SEC",
+    tier: "SILVER",
+    tradableAssets: "Futures",
+    rating: 3.8,
+    reviewCount: 7,
+    accounts: "217",
+    accent: "#00bcd4",
+    logoSrc: "/brokers/daolsec.svg",
+    categories: ["futures"],
+  },
+  {
+    id: "innovex",
+    name: "InnovestX",
+    tier: "SILVER",
+    tradableAssets: "Stocks, Futures",
+    rating: 3.8,
+    reviewCount: "1.9K",
+    accounts: "30.8K",
+    accent: "#ff9800",
+    logoSrc: "/brokers/innovex.svg",
+    categories: ["stock", "futures"],
+  },
+  {
+    id: "cgsi",
+    name: "CGS (Thailand)",
+    tier: "SILVER",
+    tradableAssets: "Stocks, Futures",
+    rating: 3.8,
+    reviewCount: 6,
+    accounts: "142",
+    accent: "#e91e63",
+    logoSrc: "/brokers/cgsi.svg",
+    categories: ["stocks", "futures"],
   },
 ];

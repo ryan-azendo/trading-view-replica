@@ -16,6 +16,8 @@ export interface Broker {
   accent: string;
   /** Path to a real logo asset (overrides the colored tile). */
   logoSrc?: string;
+  /** Destination for the "Open account" CTA (e.g. a broker landing page). */
+  href?: string;
   /** Category ids this broker belongs to (match FILTER_OPTIONS ids). */
   categories: string[];
 }
@@ -43,6 +45,7 @@ export const BROKERS: Broker[] = [
     accounts: "5.5K",
     accent: "#2962ff",
     logoSrc: "/brokers/liberator.svg",
+    href: "/brokers/liberator",
     categories: ["stocks", "futures"],
   },
   {

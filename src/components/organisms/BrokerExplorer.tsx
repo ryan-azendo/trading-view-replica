@@ -78,9 +78,7 @@ export function BrokerExplorer({
           ariaLabel="Filter brokers by market"
         />
       </div>
-      <p className={styles.count}>
-        {visible.length} {visible.length === 1 ? "broker" : "brokers"}
-      </p>
+      <span className={styles.spacer} aria-hidden="true" />
       <BrokerList brokers={visible.map(toListItem)} />
     </div>
   );

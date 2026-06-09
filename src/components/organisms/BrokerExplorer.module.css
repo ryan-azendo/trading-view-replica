@@ -24,8 +24,8 @@
   background: var(--color-divider);
 }
 
-.count {
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-  text-align: center;
+/* Reserves the vertical space the (removed) result count used to occupy,
+   so the gap between the controls and the list stays the same. */
+.spacer {
+  height: calc(var(--text-sm) * var(--leading-normal));
 }

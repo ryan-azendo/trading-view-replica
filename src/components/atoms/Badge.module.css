@@ -42,7 +42,7 @@
   padding: 3px 8px;
   font-weight: var(--font-semibold);
   letter-spacing: 0.04em;
-  color: var(--primitive-white);
+  color: var(--color-text-on-brand);
   background: linear-gradient(135deg, #9aa3ad, #6b7280);
 }
 

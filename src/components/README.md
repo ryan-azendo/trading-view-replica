@@ -5,9 +5,9 @@ from the layers below it.
 
 | Layer          | Folder        | What lives here                                                                 |
 | -------------- | ------------- | ------------------------------------------------------------------------------ |
-| **Atoms**      | `atoms/`      | Smallest building blocks: Button, Icon, Badge, Input, Rating star, ThemeToggle |
-| **Molecules**  | `molecules/`  | Small groups of atoms: SearchField, FilterTab, RatingStars, BrokerStat         |
-| **Organisms**  | `organisms/`  | Distinct sections: Header/Nav, BrokerCard, BrokerList, FiltersBar, FAQ, Footer |
+| **Atoms**      | `atoms/`      | Smallest building blocks: Button, Icon, Badge, Input, RatingStars, ThemeToggle, BrandLogo, SocialIcon |
+| **Molecules**  | `molecules/`  | Small groups of atoms: RatingDisplay, FilterTab, StatCounter, BrokerStat, Dropdown |
+| **Organisms**  | `organisms/`  | Distinct sections: Header, BrokerCard, BrokerList, BrokerExplorer, FilterBar, PromoSection, Footer |
 | **Templates**  | `templates/`  | Page-level layout/structure with placeholder content                           |
 
 > Pages live in `src/app/` (Next.js App Router) and assemble templates +

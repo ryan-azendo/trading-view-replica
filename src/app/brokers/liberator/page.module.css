@@ -145,23 +145,32 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--space-4);
   height: 64px;
 }
-.headerLogo { height: 26px; }
-.headerRight { display: flex; align-items: center; gap: var(--space-6); }
+.headerLogo { height: 26px; flex-shrink: 0; }
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  min-width: 0;
+}
 .headerCta {
+  flex-shrink: 0;
   background: var(--lib-blue);
   color: #fff;
   padding: 9px 20px;
   border-radius: var(--radius-full);
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
+  white-space: nowrap;
   text-decoration: none;
 }
 .headerCta:hover { background: var(--lib-blue-hover); color: #fff; }
 .headerLink {
   color: var(--lib-text-dim);
   font-size: var(--text-base);
+  white-space: nowrap;
   text-decoration: none;
 }
 .headerLink:hover { color: #fff; }
@@ -749,8 +758,13 @@
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media (max-width: 900px) {
+/* Hide the long Thai nav links before they crowd the logo/CTA (tablet). */
+@media (max-width: 1024px) {
   .headerLink { display: none; }
+  .headerRight { gap: var(--space-4); }
+}
+
+@media (max-width: 900px) {
   .heroInner,
   .reviewsInner,
   .aboutBody,
@@ -774,4 +788,10 @@
   .commToggle { grid-template-columns: 1fr; }
   .footerInner { flex-direction: column; text-align: center; }
   .footerCopy { margin: 0; }
+}
+
+@media (max-width: 400px) {
+  .headerInner { height: 56px; }
+  .headerLogo { height: 22px; }
+  .headerCta { padding: 8px 14px; font-size: var(--text-sm); }
 }

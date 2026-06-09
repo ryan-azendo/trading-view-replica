@@ -7,6 +7,7 @@ import { RatingStars } from "@/components/atoms/RatingStars";
 import { Input } from "@/components/atoms/Input";
 import { RatingDisplay } from "@/components/molecules/RatingDisplay";
 import { FilterTab } from "@/components/molecules/FilterTab";
+import { Dropdown } from "@/components/molecules/Dropdown";
 import { BrokerStat } from "@/components/molecules/BrokerStat";
 import { BrokerCard } from "@/components/organisms/BrokerCard";
 import { FilterBar } from "@/components/organisms/FilterBar";
@@ -328,6 +329,18 @@ export default function FoundationPage() {
             <FilterTab>Crypto</FilterTab>
             <FilterTab>Futures</FilterTab>
           </div>
+        </Section>
+
+        <Section title="Dropdown — molecule">
+          <Dropdown
+            ariaLabel="Sort"
+            defaultValue="best-rated"
+            options={[
+              { id: "best-rated", label: "Best rated" },
+              { id: "most-reviews", label: "Most reviews" },
+              { id: "most-users", label: "Most users" },
+            ]}
+          />
         </Section>
 
         <Section title="FilterBar — organism (interactive)">

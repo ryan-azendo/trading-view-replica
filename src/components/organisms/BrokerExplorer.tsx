@@ -6,8 +6,15 @@ import {
   BrokerList,
   type BrokerListItem,
 } from "@/components/organisms/BrokerList";
+import { Dropdown, type DropdownOption } from "@/components/molecules/Dropdown";
 import type { Broker } from "@/data/brokers";
 import styles from "./BrokerExplorer.module.css";
+
+const SORT_OPTIONS: DropdownOption[] = [
+  { id: "best-rated", label: "Best rated" },
+  { id: "most-reviews", label: "Most reviews" },
+  { id: "most-users", label: "Most users" },
+];
 
 export interface BrokerExplorerProps {
   brokers: Broker[];
@@ -39,23 +46,38 @@ export function BrokerExplorer({
   defaultFilter = "all",
 }: BrokerExplorerProps) {
   const [active, setActive] = useState(defaultFilter);
+  const [sort, setSort] = useState("best-rated");
 
-  const visible = useMemo(
-    () =>
+  const visible = useMemo(() => {
+    const filtered =
       active === "all"
         ? brokers
-        : brokers.filter((b) => b.categories.includes(active)),
-    [brokers, active],
-  );
+        : brokers.filter((b) => b.categories.includes(active));
+
+    return [...filtered].sort((a, b) =>
+      sort === "best-rated"
+        ? b.rating - a.rating
+        : (b.reviewCount ?? 0) - (a.reviewCount ?? 0),
+    );
+  }, [brokers, active, sort]);
 
   return (
     <div className={styles.explorer}>
-      <FilterBar
-        options={filters}
-        value={active}
-        onChange={setActive}
-        ariaLabel="Filter brokers by market"
-      />
+      <div className={styles.controls}>
+        <Dropdown
+          options={SORT_OPTIONS}
+          value={sort}
+          onChange={setSort}
+          ariaLabel="Sort brokers"
+        />
+        <span className={styles.divider} aria-hidden="true" />
+        <FilterBar
+          options={filters}
+          value={active}
+          onChange={setActive}
+          ariaLabel="Filter brokers by market"
+        />
+      </div>
       <p className={styles.count}>
         {visible.length} {visible.length === 1 ? "broker" : "brokers"}
       </p>

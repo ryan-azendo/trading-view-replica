@@ -9,6 +9,21 @@
   gap: var(--space-4);
 }
 
+/* sort dropdown + divider + filter pills, centered as one row */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.divider {
+  width: 1px;
+  height: 28px;
+  background: var(--color-divider);
+}
+
 .count {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);

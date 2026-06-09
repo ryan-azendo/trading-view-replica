@@ -118,7 +118,7 @@ export const BROKERS: Broker[] = [
     accounts: "30.8K",
     accent: "#ff9800",
     logoSrc: "/brokers/innovex.svg",
-    categories: ["stock", "futures"],
+    categories: ["stocks", "futures"],
   },
   {
     id: "cgsi",

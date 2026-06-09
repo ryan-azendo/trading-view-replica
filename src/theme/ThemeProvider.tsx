@@ -5,7 +5,7 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 import { THEME_STORAGE_KEY } from "./theme-script";
@@ -19,26 +19,37 @@ interface ThemeContextValue {
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
+const THEME_CHANGE_EVENT = "theme-change";
+
+function readTheme(): Theme {
+  if (typeof document === "undefined") return "light";
+  const attr = document.documentElement.getAttribute("data-theme");
+  return attr === "dark" || attr === "light" ? attr : "light";
+}
+
+function subscribeTheme(callback: () => void) {
+  window.addEventListener(THEME_CHANGE_EVENT, callback);
+  return () => window.removeEventListener(THEME_CHANGE_EVENT, callback);
+}
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   // Start from a deterministic value so SSR and the first client render agree
-  // (avoids a hydration mismatch). The inline theme-script has already set the
-  // correct theme on <html>; we sync React state to it right after mount.
-  const [theme, setThemeState] = useState<Theme>("light");
-
-  useEffect(() => {
-    const attr = document.documentElement.getAttribute("data-theme");
-    if (attr === "dark" || attr === "light") setThemeState(attr);
-  }, []);
+  // (avoids a hydration mismatch). After hydration, React reads the theme that
+  // the inline script already applied to <html>.
+  const theme = useSyncExternalStore(
+    subscribeTheme,
+    readTheme,
+    (): Theme => "light",
+  );
 
   const setTheme = useCallback((next: Theme) => {
-    setThemeState(next);
     document.documentElement.setAttribute("data-theme", next);
     try {
       localStorage.setItem(THEME_STORAGE_KEY, next);
     } catch {
       /* storage may be unavailable (private mode, etc.) — ignore */
     }
+    window.dispatchEvent(new Event(THEME_CHANGE_EVENT));
   }, []);
 
   const toggleTheme = useCallback(() => {

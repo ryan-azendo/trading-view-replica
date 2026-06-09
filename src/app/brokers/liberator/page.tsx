@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import {
   ScanLine,
@@ -176,7 +177,6 @@ export default function LiberatorPage() {
       {/* ===================== HEADER ===================== */}
       <header className={styles.header}>
         <div className={`container ${styles.headerInner}`}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={LIB_LOGO} alt="Liberator" className={styles.headerLogo} />
           <div className={styles.headerRight}>
             <a href="#open" className={styles.headerCta}>
@@ -203,7 +203,6 @@ export default function LiberatorPage() {
             </h1>
             <div className={styles.heroAwards}>
               <span className={styles.heroAwardsBrand}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={TV_LOGO} alt="TradingView" className={styles.tvLogo} />
                 <span className={styles.heroAwardsName}>Broker Awards 2025</span>
               </span>
@@ -214,9 +213,7 @@ export default function LiberatorPage() {
             </div>
           </div>
           <div className={styles.heroArt}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={ph(900, 560)} alt="" className={styles.heroChart} />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={ph(260, 420)} alt="" className={styles.heroPhone} />
           </div>
         </div>
@@ -264,10 +261,8 @@ export default function LiberatorPage() {
             <span className={styles.lockup}>
               <img src={LIB_LOGO} alt="Liberator" className={styles.lockupLogo} />
               <span className={styles.lockupX}>×</span>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={TV_LOGO} alt="TradingView" className={styles.tvLogo} />
+              <img src={TV_LOGO} alt="TradingView" className={styles.tvLogo} />
             </span>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={ph(960, 600)} alt="" className={styles.laptop} />
             <div className={styles.laptopCtas}>
               <a href="#open" className={styles.btnPrimary}>
@@ -290,7 +285,6 @@ export default function LiberatorPage() {
         <div className={`container ${styles.aboutInner}`}>
           <h2 className={styles.sectionHeading}>รู้จักกับ Liberator</h2>
           <div className={styles.aboutBody}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={ph(360, 460)} alt="" className={styles.aboutPhone} />
             <div className={styles.aboutText}>
               <p>
@@ -320,8 +314,7 @@ export default function LiberatorPage() {
             <span className={styles.inlineLockup}>
               <img src={LIB_LOGO} alt="Liberator" className={styles.inlineLogo} />
               <span className={styles.lockupX}>×</span>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={TV_LOGO} alt="TradingView" className={styles.tvLogo} />
+              <img src={TV_LOGO} alt="TradingView" className={styles.tvLogo} />
             </span>
           </h2>
           <div className={styles.featureGrid}>
@@ -346,13 +339,11 @@ export default function LiberatorPage() {
           </h2>
 
           <div className={styles.tutorialCard}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={ph(220, 220)} alt="" className={styles.tutorialIcon} />
             <div className={styles.tutorialBody}>
               <span className={styles.lockup}>
                 <img src={LIB_LOGO} alt="Liberator" className={styles.lockupLogo} />
                 <span className={styles.lockupX}>×</span>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={TV_LOGO} alt="TradingView" className={styles.tvLogo} />
               </span>
               <h3 className={styles.tutorialTitle}>
@@ -390,10 +381,8 @@ export default function LiberatorPage() {
           <span className={`${styles.lockup} ${styles.lockupCenter}`}>
             <img src={LIB_LOGO} alt="Liberator" className={styles.lockupLogo} />
             <span className={styles.lockupX}>×</span>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={TV_LOGO} alt="TradingView" className={styles.tvLogo} />
           </span>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={ph(1000, 600)} alt="" className={styles.showcaseLaptop} />
           <CarouselDots count={6} />
         </div>
@@ -464,7 +453,6 @@ export default function LiberatorPage() {
       <section className={styles.studyBand}>
         <div className="container">
           <div className={styles.studyCard}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={ph(1280, 420)} alt="" className={styles.studyBg} />
             <div className={styles.studyContent}>
               <h2 className={styles.studyTitle}>
@@ -496,7 +484,6 @@ export default function LiberatorPage() {
       <section className={styles.apps}>
         <div className="container">
           <div className={styles.appsCard}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={ph(520, 420)} alt="" className={styles.appsImg} />
             <div className={styles.appsBody}>
               <h2 className={styles.appsTitle}>TradingView on desktop and mobile</h2>
@@ -512,11 +499,8 @@ export default function LiberatorPage() {
                 <li>Link several tabs with the same symbols.</li>
               </ul>
               <div className={styles.storeBadges}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={ph(140, 44)} alt="Download for Windows" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={ph(140, 44)} alt="Download on the App Store" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={ph(140, 44)} alt="Get it on Google Play" />
               </div>
             </div>
@@ -527,7 +511,6 @@ export default function LiberatorPage() {
       {/* ===================== FOOTER ===================== */}
       <footer className={styles.footer}>
         <div className={`container ${styles.footerInner}`}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={LIB_LOGO} alt="Liberator" className={styles.footerLogo} />
           <div className={styles.footerSocials}>
             {SOCIALS.map((name) => (
